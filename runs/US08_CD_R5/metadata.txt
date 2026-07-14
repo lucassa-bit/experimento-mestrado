@@ -1,0 +1,12 @@
+Run_ID: US08_CD_R5
+US_ID: US08
+Condition: CD
+Ordem: 41
+Start: 2026-07-13T16:42:56
+End: 2026-07-13T16:43:23
+Run path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US08_CD_R5
+Prompt path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\scripts\clarification-gen\clarify-prompt.txt
+Output path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US08_CD_R5\output.md
+Clarification full path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US08_CD_R5\clarification-full.md
+Log path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US08_CD_R5\codex-log.txt
+Status: Valid

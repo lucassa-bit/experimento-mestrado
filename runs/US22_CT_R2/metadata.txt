@@ -1,0 +1,12 @@
+Run_ID: US22_CT_R2
+US_ID: US22
+Condition: CT
+Ordem: 92
+Start: 2026-07-13T17:05:46
+End: 2026-07-13T17:06:10
+Run path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US22_CT_R2
+Prompt path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\scripts\clarification-gen\clarify-prompt.txt
+Output path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US22_CT_R2\output.md
+Clarification full path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US22_CT_R2\clarification-full.md
+Log path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US22_CT_R2\codex-log.txt
+Status: Valid

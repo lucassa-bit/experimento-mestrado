@@ -1,0 +1,12 @@
+Run_ID: US02_CS_R3
+US_ID: US02
+Condition: CS
+Ordem: 73
+Start: 2026-07-13T16:56:50
+End: 2026-07-13T16:57:14
+Run path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US02_CS_R3
+Prompt path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\scripts\clarification-gen\clarify-prompt.txt
+Output path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US02_CS_R3\output.md
+Clarification full path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US02_CS_R3\clarification-full.md
+Log path: C:\Users\lucas\OneDrive\Documentos\experimento-mestrado\runs\US02_CS_R3\codex-log.txt
+Status: Valid
