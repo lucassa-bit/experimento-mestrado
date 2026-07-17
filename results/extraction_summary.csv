@@ -1,0 +1,7 @@
+metric,value
+registered_executions,120
+valid_executions,120
+extracted_question_lines,1039
+internal_duplicates_removed,441
+annotated_questions,598
+normalized_gaps,64

@@ -59,7 +59,7 @@ CO,US08,G15,Operational,persistent,present in both; category matches the conditi
 CO,US08,G16,Operational,persistent,present in both; category matches the condition target
 CO,US08,G17,Operational,persistent,present in both; category matches the condition target
 CO,US08,G18,Operational,persistent,present in both; category matches the condition target
-CO,US08,G19,Operational,persistent,present in both; category matches the condition target
+CO,US08,G19,Operational,redundant,present in both; all questions redundant in the condition
 CO,US08,G20,Decisional,eliminated,"present in C0, absent in condition"
 CO,US08,G21,Operational,persistent,present in both; category matches the condition target
 CO,US08,G22,Operational,persistent,present in both; category matches the condition target
@@ -73,7 +73,7 @@ CO,US19,G45,Systemic,eliminated,"present in C0, absent in condition"
 CO,US19,G46,Decisional,unchanged,present in both; outside the condition target
 CO,US19,G47,Lexical,unchanged,present in both; outside the condition target
 CO,US19,G48,Systemic,eliminated,"present in C0, absent in condition"
-CO,US19,G49,Operational,persistent,present in both; category matches the condition target
+CO,US19,G49,Operational,redundant,present in both; all questions redundant in the condition
 CO,US19,G50,Systemic,eliminated,"present in C0, absent in condition"
 CO,US19,G51,Systemic,eliminated,"present in C0, absent in condition"
 CO,US19,G56,Decisional,emergent,"absent in C0, present in condition"
@@ -108,7 +108,7 @@ CD,US08,G17,Operational,unchanged,present in both; outside the condition target
 CD,US08,G18,Operational,unchanged,present in both; outside the condition target
 CD,US08,G19,Operational,unchanged,present in both; outside the condition target
 CD,US08,G20,Decisional,eliminated,"present in C0, absent in condition"
-CD,US08,G21,Operational,unchanged,present in both; outside the condition target
+CD,US08,G21,Operational,redundant,present in both; all questions redundant in the condition
 CD,US08,G22,Operational,unchanged,present in both; outside the condition target
 CD,US08,G23,Operational,unchanged,present in both; outside the condition target
 CD,US08,G24,Operational,emergent,"absent in C0, present in condition"
@@ -151,7 +151,7 @@ CS,US08,G15,Operational,unchanged,present in both; outside the condition target
 CS,US08,G16,Operational,unchanged,present in both; outside the condition target
 CS,US08,G17,Operational,unchanged,present in both; outside the condition target
 CS,US08,G18,Operational,unchanged,present in both; outside the condition target
-CS,US08,G19,Operational,unchanged,present in both; outside the condition target
+CS,US08,G19,Operational,redundant,present in both; all questions redundant in the condition
 CS,US08,G20,Decisional,eliminated,"present in C0, absent in condition"
 CS,US08,G21,Operational,unchanged,present in both; outside the condition target
 CS,US08,G22,Operational,unchanged,present in both; outside the condition target
@@ -166,7 +166,7 @@ CS,US19,G45,Systemic,eliminated,"present in C0, absent in condition"
 CS,US19,G46,Decisional,eliminated,"present in C0, absent in condition"
 CS,US19,G47,Lexical,unchanged,present in both; outside the condition target
 CS,US19,G48,Systemic,persistent,present in both; category matches the condition target
-CS,US19,G49,Operational,unchanged,present in both; outside the condition target
+CS,US19,G49,Operational,redundant,present in both; all questions redundant in the condition
 CS,US19,G50,Systemic,persistent,present in both; category matches the condition target
 CS,US19,G51,Systemic,persistent,present in both; category matches the condition target
 CS,US19,G52,Systemic,emergent,"absent in C0, present in condition"
@@ -196,14 +196,14 @@ CT,US02,G07,Decisional,eliminated,"present in C0, absent in condition"
 CT,US02,G08,Decisional,emergent,"absent in C0, present in condition"
 CT,US02,G11,Operational,emergent,"absent in C0, present in condition"
 CT,US08,G15,Operational,persistent,present in both; category matches the condition target
-CT,US08,G16,Operational,persistent,present in both; category matches the condition target
+CT,US08,G16,Operational,redundant,present in both; all questions redundant in the condition
 CT,US08,G17,Operational,persistent,present in both; category matches the condition target
 CT,US08,G18,Operational,persistent,present in both; category matches the condition target
-CT,US08,G19,Operational,persistent,present in both; category matches the condition target
+CT,US08,G19,Operational,redundant,present in both; all questions redundant in the condition
 CT,US08,G20,Decisional,eliminated,"present in C0, absent in condition"
-CT,US08,G21,Operational,persistent,present in both; category matches the condition target
+CT,US08,G21,Operational,redundant,present in both; all questions redundant in the condition
 CT,US08,G22,Operational,persistent,present in both; category matches the condition target
-CT,US08,G23,Operational,persistent,present in both; category matches the condition target
+CT,US08,G23,Operational,redundant,present in both; all questions redundant in the condition
 CT,US08,G24,Operational,emergent,"absent in C0, present in condition"
 CT,US08,G27,Operational,emergent,"absent in C0, present in condition"
 CT,US08,G28,Operational,emergent,"absent in C0, present in condition"
@@ -214,7 +214,7 @@ CT,US19,G45,Systemic,eliminated,"present in C0, absent in condition"
 CT,US19,G46,Decisional,persistent,present in both; category matches the condition target
 CT,US19,G47,Lexical,eliminated,"present in C0, absent in condition"
 CT,US19,G48,Systemic,persistent,present in both; category matches the condition target
-CT,US19,G49,Operational,persistent,present in both; category matches the condition target
+CT,US19,G49,Operational,redundant,present in both; all questions redundant in the condition
 CT,US19,G50,Systemic,eliminated,"present in C0, absent in condition"
 CT,US19,G51,Systemic,persistent,present in both; category matches the condition target
 CT,US19,G54,Operational,emergent,"absent in C0, present in condition"

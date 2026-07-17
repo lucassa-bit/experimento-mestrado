@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import random
 import subprocess
 import sys
@@ -10,12 +11,15 @@ import time
 from datetime import datetime
 from pathlib import Path
 
-from lib.codex import ensure_codex_available, resolve_codex_executable
+from lib.codex import codex_version, ensure_codex_available, resolve_codex_executable
 from lib.io import export_csv, read_metadata, read_utf8, write_metadata, write_utf8
 from lib.paths import collected_dir, execution_table_path, get_root, prompt_path, runs_dir
 from lib.runs import RunInfo, discover_runs, map_status_pt, parse_repeticao, validate_run_inputs
 
 PAUSE_BETWEEN_RUNS_SECONDS = 3
+
+EXPERIMENT_MODEL = os.environ.get("CLARIFY_MODEL", "gpt-5.5")
+SHUFFLE_SEED = int(os.environ.get("CLARIFY_SEED", "20260708"))
 
 
 def invoke_codex_exec(
@@ -25,6 +29,7 @@ def invoke_codex_exec(
     prompt: str,
     *,
     codex_executable: str,
+    model: str = EXPERIMENT_MODEL,
 ) -> int:
     """Run codex with prompt on stdin; merge stdout/stderr into the log file."""
     import os
@@ -47,6 +52,8 @@ def invoke_codex_exec(
                     "exec",
                     "--cd",
                     str(run_path),
+                    "--model",
+                    model,
                     "--sandbox",
                     "read-only",
                     "--output-last-message",
@@ -162,12 +169,14 @@ def run_all(root: Path | None = None) -> list[dict[str, object]]:
 
     ensure_codex_available()
     codex_executable = resolve_codex_executable()
+    codex_cli_version = codex_version(codex_executable)
     collected_dir().mkdir(parents=True, exist_ok=True)
 
     runs = discover_runs(runs_dir())
     if not runs:
         raise RuntimeError(f"No run folders found in {runs_dir()}")
 
+    random.seed(SHUFFLE_SEED)
     random.shuffle(runs)
 
     prompt = read_utf8(prompt_file)
@@ -177,7 +186,8 @@ def run_all(root: Path | None = None) -> list[dict[str, object]]:
     valid_count = 0
     failed_count = 0
 
-    print(f"\nTotal runs: {total_runs}\n")
+    print(f"\nTotal runs: {total_runs}")
+    print(f"Model: {EXPERIMENT_MODEL} | Codex: {codex_cli_version} | Seed: {SHUFFLE_SEED}\n")
 
     for run_index, run in enumerate(runs, start=1):
         remaining_count = total_runs - run_index
@@ -197,7 +207,7 @@ def run_all(root: Path | None = None) -> list[dict[str, object]]:
 
         status = "Started"
         error_message = ""
-        start = datetime.now()
+        start = datetime.now().astimezone()
 
         try:
             validate_run_inputs(run)
@@ -215,7 +225,10 @@ def run_all(root: Path | None = None) -> list[dict[str, object]]:
                     "US_ID": run.us_id,
                     "Condition": run.condition,
                     "Ordem": str(run_index),
-                    "Start": start.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "Model": EXPERIMENT_MODEL,
+                    "Codex version": codex_cli_version,
+                    "Seed": str(SHUFFLE_SEED),
+                    "Start": start.isoformat(timespec="seconds"),
                     "Run path": str(run.run_path),
                     "Prompt path": str(prompt_file),
                     "Status": "Started",
@@ -230,11 +243,12 @@ def run_all(root: Path | None = None) -> list[dict[str, object]]:
                 log_path,
                 prompt,
                 codex_executable=codex_executable,
+                model=EXPERIMENT_MODEL,
             )
             codex_duration = time.monotonic() - codex_started_at
             print(f"Codex finished in {int(codex_duration // 60):02d}:{int(codex_duration % 60):02d}")
 
-            end = datetime.now()
+            end = datetime.now().astimezone()
             if exit_code != 0:
                 raise RuntimeError(f"codex exec exited with code {exit_code}. Check {log_path}")
             if not output_path.is_file():
@@ -256,8 +270,11 @@ def run_all(root: Path | None = None) -> list[dict[str, object]]:
                     "US_ID": run.us_id,
                     "Condition": run.condition,
                     "Ordem": str(run_index),
-                    "Start": start.strftime("%Y-%m-%dT%H:%M:%S"),
-                    "End": end.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "Model": EXPERIMENT_MODEL,
+                    "Codex version": codex_cli_version,
+                    "Seed": str(SHUFFLE_SEED),
+                    "Start": start.isoformat(timespec="seconds"),
+                    "End": end.isoformat(timespec="seconds"),
                     "Run path": str(run.run_path),
                     "Prompt path": str(prompt_file),
                     "Output path": str(output_path),
@@ -271,7 +288,7 @@ def run_all(root: Path | None = None) -> list[dict[str, object]]:
             status = "Failed"
             error_message = str(exc)
             failed_count += 1
-            end = datetime.now()
+            end = datetime.now().astimezone()
             write_metadata(
                 metadata_path,
                 {
@@ -279,7 +296,10 @@ def run_all(root: Path | None = None) -> list[dict[str, object]]:
                     "US_ID": run.us_id,
                     "Condition": run.condition,
                     "Ordem": str(run_index),
-                    "End": end.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "Model": EXPERIMENT_MODEL,
+                    "Codex version": codex_cli_version,
+                    "Seed": str(SHUFFLE_SEED),
+                    "End": end.isoformat(timespec="seconds"),
                     "Run path": str(run.run_path),
                     "Prompt path": str(prompt_file),
                     "Output path": str(output_path),
