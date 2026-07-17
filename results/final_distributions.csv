@@ -1,0 +1,13 @@
+dimension,value,count
+Final_Coverage,Unanswered,315
+Final_Coverage,Partially answered,252
+Final_Coverage,Redundant,31
+Final_Relevance,Necessary,387
+Final_Relevance,Useful,211
+Final_Category,Operational,367
+Final_Category,Decisional,91
+Final_Category,Systemic,72
+Final_Category,Lexical,68
+crossed,Unanswered+Necessary,195
+crossed,CT+Unanswered,15
+crossed,CT+Unanswered+Necessary,13
